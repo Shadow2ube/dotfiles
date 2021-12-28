@@ -40,5 +40,6 @@ cd yay-git
 makepkg -si
 
 echo "cleaning up"
-rm -r dotfiles
+sudo rm -r dotfiles
+
 echo "done!"
