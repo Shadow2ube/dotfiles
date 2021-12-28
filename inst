@@ -29,7 +29,7 @@ cd ../..
 
 echo "downloading zsh"
 sudo pacman -S zsh
-wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O - && chmod +x install.sh && ./install.sh && rm install.sh
+wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh && chmod +x install.sh && ./install.sh && rm install.sh
 sudo mv ids.zsh-theme .oh-my-zsh/themes/
 mv .zshrc.pre-oh-my-zsh .zshrc
 
