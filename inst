@@ -37,6 +37,6 @@ echo "downloading yay"
 cd /opt
 sudo git clone "https://aur.archlinux.org/yay-git.git"
 cd yay-git 
-sudo makepkg -si
+makepkg -si
 
 echo "done!"
