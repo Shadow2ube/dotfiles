@@ -1,0 +1,42 @@
+#! /bin/zsh
+
+username=shadow2ube
+github_url="https://github.com/$username
+raw_guthub_url="https://raw.github.com/$username"
+
+sudo pacman -Syu
+sudo pacman -S git xcompmgr libxinerama xorg-xrdb wget
+
+sudo mkdir config && cd config
+
+echo "downloading dwm"
+sudo git clone "$github_url/dwm"
+
+echo "downloading st"
+sudo git clone "$github_url/st"
+
+echo  "downloading dmenu"
+sudo git clone "$github_url/dmenu"
+
+echo "downloading slstatus"
+sudo git clone "$github_url/slstatus"
+
+cd dwm && sudo make clean install
+cd ../st && sudo make clean install
+cd ../dmenu && sudo make clean install
+cd ../slstatus && sudo make clean install
+cd ../..
+
+echo "downloading zsh"
+sudo pacman -S zsh
+sudo sh -c "$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)"
+sudo git clone "$raw_github_url/zshtheme/master/ids.zsh-theme"
+sudo mv ids.zsh-theme .oh-my-zsh/themes/
+
+echo "downloading yay"
+cd /opt
+sudo git clone "https://aur.archlinux.org/yay-git.git"
+cd yay-git 
+sudo makepkg -si
+
+echo "done!"
